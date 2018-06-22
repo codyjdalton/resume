@@ -11,6 +11,7 @@ export class ResumeComponent implements OnInit {
   candidate = {
     firstName: 'Cody',
     lastName: 'Dalton',
+    email: 'codydevbox@gmail.com',
     address: 'Phoenix, AZ',
     title: 'Software Engineer',
     interests: [
