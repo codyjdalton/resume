@@ -21,8 +21,8 @@
       <li *ngIf="candidate.education" class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#education">Education</a>
       </li>
-      <li *ngIf="candidate.education" class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+      <li *ngIf="candidate.skills" class="nav-item">
+        <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === 'skills'" href="#skills">Skills</a>
       </li>
       <li *ngIf="candidate.interests" class="nav-item">
         <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === 'interests'" href="#interests">Interests</a>

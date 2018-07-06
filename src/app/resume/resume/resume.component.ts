@@ -14,6 +14,26 @@ export class ResumeComponent implements OnInit {
     email: 'codydevbox@gmail.com',
     address: 'Phoenix, AZ',
     title: 'Software Engineer',
+    skills: [
+      'javascript',
+      'nodejs',
+      'postgresql',
+      'redis',
+      'express',
+      'git',
+      'mysql',
+      'npm',
+      'html5',
+      'css3',
+      'sass',
+      'less'
+    ],
+    workflow: [
+      'Agile Development & Scrum',
+      'Shared Services Architecture',
+      'Test Driven Development',
+      'Cross Functional Teams'
+    ],
     interests: [
       'Apart from being a software engineer, I spend most of my time reading and going to movies. ' +
       'During summer blockbuster season (when it is too hot to go outside in Phoenix), ' +
