@@ -34,10 +34,15 @@ export class NavComponent implements OnInit {
     const scrollTop = window.scrollY;
     const aboutPos = document.getElementById('about').offsetTop;
     const expPos = document.getElementById('experience').offsetTop;
+    const skillPos = document.getElementById('skills').offsetTop;
     const intPos = document.getElementById('interests').offsetTop;
 
     if (scrollTop > (intPos - 200)) {
       return 'interests';
+    }
+
+    if (scrollTop > (skillPos - 200)) {
+      return 'skills';
     }
 
     if (scrollTop > (expPos - 200)) {
