@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavComponent } from './nav.component';
@@ -21,5 +22,12 @@ describe('NavComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should default the active tab to about', () => {
+
+    component.ngOnInit();
+
+    expect(component.activeTab).toEqual('about');
   });
 });
