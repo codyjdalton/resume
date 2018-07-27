@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 
 import { timer, Subscription, interval, fromEvent } from 'rxjs';
-import { throttle, throttleTime } from 'rxjs/operators';
+import { throttle, throttleTime, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav',
@@ -17,46 +17,95 @@ export class NavComponent implements OnInit {
   private scrollObservable = fromEvent(document, 'scroll');
   private scrollSub: Subscription;
   private isScrolling = false;
+  private scrollBuffer = 200;
+
+  private scrollKeys = [
+    'about',
+    'experience',
+    'skills',
+    'interests'
+  ];
+  private scrollPosMap = new Map();
 
   ngOnInit() {
     this.scrollObservable
       .subscribe(
         () => this.setActiveTab()
       );
+
+    this.setScrollPos();
+
+    this.scrollObservable
+        .pipe(
+          debounceTime(500)
+        )
+        .subscribe(
+          () => this.setScrollPos()
+        );
   }
 
-  setActiveTab() {
+  /**
+   * @method toggle
+   * @returns {void}
+   */
+  toggle() {
+    this.toggled = !this.toggled;
+  }
+
+  /**
+   * @method close
+   * @returns {void}
+   */
+  close() {
+    this.toggled = false;
+  }
+
+  /**
+   * @method setActiveTab
+   * @returns {void}
+   */
+  private setActiveTab(): void {
     this.activeTab = this.determineActiveTab();
   }
 
-  determineActiveTab() {
+  /**
+   * @method determineActiveTab
+   * @returns {string}
+   */
+  private determineActiveTab(): string {
 
     const scrollTop = window.scrollY;
-    const aboutPos = document.getElementById('about').offsetTop;
-    const expPos = document.getElementById('experience').offsetTop;
-    const skillPos = document.getElementById('skills').offsetTop;
-    const intPos = document.getElementById('interests').offsetTop;
 
-    if (scrollTop > (intPos - 200)) {
+    if (scrollTop > (this.scrollPosMap.get('interests') - this.scrollBuffer)) {
       return 'interests';
     }
 
-    if (scrollTop > (skillPos - 200)) {
+    if (scrollTop > (this.scrollPosMap.get('skills') - this.scrollBuffer)) {
       return 'skills';
     }
 
-    if (scrollTop > (expPos - 200)) {
+    if (scrollTop > (this.scrollPosMap.get('experience') - this.scrollBuffer)) {
       return 'experience';
     }
 
     return 'about';
   }
 
-  toggle() {
-    this.toggled = !this.toggled;
-  }
+  /**
+   * @method setScrollPos
+   * @returns {void}
+   */
+  private setScrollPos(): void {
+    this.scrollKeys.forEach(
+      key => {
 
-  close() {
-    this.toggled = false;
+        const ele = document.getElementById(key);
+
+        if (ele && ele.offsetTop) {
+          const elePos = document.getElementById(key).offsetTop;
+          this.scrollPosMap.set(key, elePos);
+        }
+      }
+    );
   }
 }
