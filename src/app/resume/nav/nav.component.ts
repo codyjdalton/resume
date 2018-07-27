@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Input, HostListener } from '@angular/core';
 
 import { timer, Subscription, interval, fromEvent } from 'rxjs';
 import { throttle, throttleTime, debounceTime } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { throttle, throttleTime, debounceTime } from 'rxjs/operators';
   selector: 'app-nav',
   templateUrl: './nav.component.html'
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, AfterViewInit {
 
   @Input() candidate = null;
 
@@ -33,15 +33,17 @@ export class NavComponent implements OnInit {
         () => this.setActiveTab()
       );
 
-    this.setScrollPos();
-
     this.scrollObservable
         .pipe(
-          debounceTime(500)
+          throttleTime(500)
         )
         .subscribe(
           () => this.setScrollPos()
         );
+  }
+
+  ngAfterViewInit() {
+    this.setScrollPos();
   }
 
   /**
@@ -96,6 +98,7 @@ export class NavComponent implements OnInit {
    * @returns {void}
    */
   private setScrollPos(): void {
+
     this.scrollKeys.forEach(
       key => {
 
