@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnInit, Input, HostListener } from '@angular/core';
 
-import { timer, Subscription, interval, fromEvent } from 'rxjs';
-import { throttle, throttleTime, debounceTime } from 'rxjs/operators';
+import { AfterViewInit, Component, OnInit, Input, HostListener } from '@angular/core';
+import { Subscription, fromEvent, Observable } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav',
@@ -14,9 +14,9 @@ export class NavComponent implements OnInit, AfterViewInit {
   public toggled = false;
   public activeTab = 'about';
 
-  private scrollObservable = fromEvent(document, 'scroll');
-  private scrollSub: Subscription;
-  private isScrolling = false;
+  public scrollObservable: Observable<any> = fromEvent(document, 'scroll');
+  public scrollPosMap = new Map();
+
   private scrollBuffer = 200;
 
   private scrollKeys = [
@@ -25,13 +25,12 @@ export class NavComponent implements OnInit, AfterViewInit {
     'skills',
     'interests'
   ];
-  private scrollPosMap = new Map();
 
   ngOnInit() {
     this.scrollObservable
-      .subscribe(
-        () => this.setActiveTab()
-      );
+        .subscribe(
+          () => this.setActiveTab()
+        );
 
     this.scrollObservable
         .pipe(

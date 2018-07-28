@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- stable
+install:
+- npm install
+before_script:
+  - npm install -g @angular/cli
+script:
+  - npm run build
+after_script: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
