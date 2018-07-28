@@ -1,7 +1,11 @@
 import { EventEmitter } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { from } from 'rxjs';
+
 import { NavComponent } from './nav.component';
+
+import { delay } from 'rxjs/operators';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -29,5 +33,14 @@ describe('NavComponent', () => {
     component.ngOnInit();
 
     expect(component.activeTab).toEqual('about');
+  });
+
+  it('should reverse the toggle position', () => {
+
+    expect(component.toggled).toBe(false);
+
+    component.toggle();
+
+    expect(component.toggled).toBe(true);
   });
 });
