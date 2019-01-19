@@ -77,19 +77,22 @@ export class NavComponent implements OnInit, AfterViewInit {
 
     const scrollTop = window.scrollY;
 
-    if (scrollTop > (this.scrollPosMap.get('interests') - this.scrollBuffer)) {
-      return 'interests';
-    }
+    const keys = this.scrollKeys.filter(() => true).reverse();
 
-    if (scrollTop > (this.scrollPosMap.get('skills') - this.scrollBuffer)) {
-      return 'skills';
-    }
+    let returnVal = null;
 
-    if (scrollTop > (this.scrollPosMap.get('experience') - this.scrollBuffer)) {
-      return 'experience';
-    }
+    keys.some(
+      (key) => {
 
-    return 'about';
+        const test = (scrollTop > (this.scrollPosMap.get(key) - this.scrollBuffer));
+
+        returnVal = key;
+
+        return test;
+      }
+    );
+  
+    return returnVal;
   }
 
   /**
