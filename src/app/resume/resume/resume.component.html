@@ -10,37 +10,13 @@
       <div class="subheading mb-5">{{ candidate.title }} · {{ candidate.address }} ·
         <a href="mailto:{{ candidate.email }}">{{ candidate.email }}</a>
       </div>
-      <p class="mb-5">Software Engineer. Javascript enthusiast. Console logger. Focused on delivering quality, maintainable technical solutions to complex problems.</p>
+      <p class="mb-5">{{ candidate.description }}</p>
       <ul class="list-inline list-social-icons mb-0">
-        <li class="list-inline-item">
-          <a href="https://twitter.com/codyjdalton" title="Cody Dalton Twitter">
+        <li class="list-inline-item" *ngFor="let social of candidate.social">
+          <a href="{{ social.link }}" title="{{ social.title }}">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://www.linkedin.com/in/cody-dalton-167941116/" title="Cody Dalton Linked In">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://github.com/codyjdalton">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://medium.com/@codyjdalton">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+              <i class="fa {{ social.icon }} fa-stack-1x fa-inverse"></i>
             </span>
           </a>
         </li>
@@ -65,36 +41,6 @@
       </div>
     </div>
 
-  </section>
-
-  <section *ngIf="candidate.education" class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
-    <div class="my-auto">
-      <h2 class="mb-5">Education</h2>
-
-      <div class="resume-item d-flex flex-column flex-md-row mb-5">
-        <div class="resume-content mr-auto">
-          <h3 class="mb-0">University of Colorado Boulder</h3>
-          <div class="subheading mb-3">Bachelor of Science</div>
-          <div>Computer Science - Web Development Track</div>
-          <p>GPA: 3.23</p>
-        </div>
-        <div class="resume-date text-md-right">
-          <span class="text-primary">August 2006 - May 2010</span>
-        </div>
-      </div>
-
-      <div class="resume-item d-flex flex-column flex-md-row">
-        <div class="resume-content mr-auto">
-          <h3 class="mb-0">James Buchanan High School</h3>
-          <div class="subheading mb-3">Technology Magnet Program</div>
-          <p>GPA: 3.56</p>
-        </div>
-        <div class="resume-date text-md-right">
-          <span class="text-primary">August 2002 - May 2006</span>
-        </div>
-      </div>
-
-    </div>
   </section>
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
@@ -122,41 +68,6 @@
     <div class="my-auto">
       <h2 class="mb-5">Interests</h2>
       <p *ngFor="let para of candidate.interests">{{ para }}</p>
-    </div>
-  </section>
-
-  <section *ngIf="candidate.education" class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
-    <div class="my-auto">
-      <h2 class="mb-5">Awards &amp; Certifications</h2>
-      <ul class="fa-ul mb-0">
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          Google Analytics Certified Developer</li>
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          Mobile Web Specialist - Google Certification</li>
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          1<sup>st</sup>
-          Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          1<sup>st</sup>
-          Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          2<sup>nd</sup>
-          Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
-        <li>
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          1<sup>st</sup>
-          Place - James Buchanan High School - Hackathon 2006</li>
-        <li>
-          <i class="fa-li fa fa-trophy text-warning"></i>
-          3<sup>rd</sup>
-          Place - James Buchanan High School - Hackathon 2005</li>
-      </ul>
     </div>
   </section>
 
