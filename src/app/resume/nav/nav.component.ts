@@ -2,6 +2,7 @@
 import { AfterViewInit, Component, OnInit, Input, HostListener } from '@angular/core';
 import { Subscription, fromEvent, Observable } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
+import { ResumeService } from '../../services/resume.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,7 @@ import { throttleTime } from 'rxjs/operators';
 })
 export class NavComponent implements OnInit, AfterViewInit {
 
-  @Input() candidate = null;
+  @Input() candidate: any = {};
 
   public toggled = false;
   public activeTab = 'about';
@@ -17,16 +18,21 @@ export class NavComponent implements OnInit, AfterViewInit {
   public scrollObservable: Observable<any> = fromEvent(document, 'scroll');
   public scrollPosMap = new Map();
 
-  private scrollBuffer = 200;
+  public navConfigs = [];
 
-  private scrollKeys = [
-    'about',
-    'experience',
-    'skills',
-    'interests'
-  ];
+  private scrollBuffer = 200;
+  private scrollKeys = [];
+
+  constructor(private resumeService: ResumeService){
+    this.navConfigs = this.resumeService.navConfig;
+  }
 
   ngOnInit() {
+
+    this.scrollKeys = this.navConfigs.map(
+      (config) => config.key
+    );
+
     this.scrollObservable
         .subscribe(
           () => this.setActiveTab()
