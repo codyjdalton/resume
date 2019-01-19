@@ -14,6 +14,7 @@ export class ResumeService {
     email: 'codydevbox@gmail.com',
     address: 'Phoenix, AZ',
     title: 'Software Engineer',
+    description: "Software Engineer. Javascript enthusiast. Console logger. Focused on delivering quality, maintainable technical solutions to complex problems.",
     skills: [
       'javascript',
       'nodejs',
@@ -74,6 +75,28 @@ export class ResumeService {
         description: 'Consultant specializing in creating web services and front end ' +
                      'components. Participated in ' +
                      'requirements gathering and general application development.',
+      },
+    ],
+    social: [
+      {
+        link: 'https://twitter.com/codyjdalton',
+        title: 'Twitter',
+        icon: 'fa-twitter'
+      },
+      {
+        link: 'https://www.linkedin.com/in/cody-dalton-167941116/',
+        title: 'LinkedIn',
+        icon: 'fa-linkedin'
+      },
+      {
+        link: 'https://github.com/codyjdalton',
+        title: 'Github',
+        icon: 'fa-github'
+      },
+      {
+        link: 'https://medium.com/@codyjdalton',
+        title: 'Medium',
+        icon: 'fa-medium'
       },
     ]
   };
