@@ -28,8 +28,6 @@ export class DescriptionPipe implements PipeTransform {
       );
     }
 
-    console.log(count);
-
     return descArr.join(' ');
   }
 

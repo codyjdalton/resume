@@ -116,6 +116,10 @@ export class ResumeService {
       key: 'skills',
     },
     {
+      title: 'Articles',
+      key: 'articles',
+    },
+    {
       title: 'Interests',
       key: 'interests',
     },
