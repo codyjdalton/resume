@@ -28,6 +28,11 @@ app.use(forceSSL());
 // in the dist directory
 app.use(express.static(__dirname + '/dist'));
 
+// for get requests to /resume, 
+app.get('/resume/:id', (req, res) => {
+  res.redirect('https://www.codydalton.me', 301);
+});
+
 // ...
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
