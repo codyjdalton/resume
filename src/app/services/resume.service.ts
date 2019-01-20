@@ -102,6 +102,25 @@ export class ResumeService {
     ]
   };
 
+  navConfig = [
+    {
+      title: 'About',
+      key: 'about',
+    },
+    {
+      title: 'Experience',
+      key: 'experience',
+    },
+    {
+      title: 'Skills',
+      key: 'skills',
+    },
+    {
+      title: 'Interests',
+      key: 'interests',
+    },
+  ];
+
   constructor() { }
 
   get documentTitle() {
