@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ResumeComponent } from './resume/resume.component';
 import { NavComponent } from './nav/nav.component';
 
+import { DescriptionPipe } from '../pipes/description.pipe';
+
 @NgModule({
   imports: [
     CommonModule
@@ -10,6 +12,6 @@ import { NavComponent } from './nav/nav.component';
   exports: [
     ResumeComponent
   ],
-  declarations: [ResumeComponent, NavComponent]
+  declarations: [DescriptionPipe, ResumeComponent, NavComponent]
 })
 export class ResumeModule { }

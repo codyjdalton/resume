@@ -15,6 +15,7 @@ export class ResumeService {
     address: 'Phoenix, AZ',
     title: 'Software Engineer',
     description: "Software Engineer. Javascript enthusiast. Console logger. Focused on delivering quality, maintainable technical solutions to complex problems.",
+    mediumUsername: 'codyjdalton',
     skills: [
       'javascript',
       'nodejs',
