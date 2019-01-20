@@ -12,23 +12,8 @@
   </button>
   <div class="collapse navbar-collapse" [class.d-block]="toggled" id="navbarSupportedContent">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === 'about'" href="#about">About</a>
-      </li>
-      <li *ngIf="candidate.experience" class="nav-item">
-        <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === 'experience'" href="#experience">Experience</a>
-      </li>
-      <li *ngIf="candidate.education" class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-      </li>
-      <li *ngIf="candidate.skills" class="nav-item">
-        <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === 'skills'" href="#skills">Skills</a>
-      </li>
-      <li *ngIf="candidate.interests" class="nav-item">
-        <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === 'interests'" href="#interests">Interests</a>
-      </li>
-      <li *ngIf="candidate.education" class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+      <li class="nav-item" *ngFor="let item of navConfigs">
+        <a (click)="close()" class="nav-link js-scroll-trigger" [class.active]="activeTab === item.key" href="#{{item.key}}">{{ item.title }}</a>
       </li>
     </ul>
   </div>
