@@ -76,10 +76,11 @@ form {
 // forms
 .form-control {
   border-radius: 0;
-  border-color: lighten($secondary, 20%);
+  //border-color: lighten($secondary, 20%);
+  border-color: $gray-500;
   padding-top: 1em;
   padding-bottom: 1em;
-  background: lighten($gray-200, 5%);
+  // background: lighten($gray-200, 5%);
   // background: $white;
 
   &:focus {
@@ -104,7 +105,7 @@ form {
 }
 
 .btn-primary {
-  background: darken($primary, 10%);
+  background: darken($primary, 5%);
 
   &:hover {
     background: $primary;
@@ -113,4 +114,8 @@ form {
 
 .pb-10 {
   padding-bottom: 6em;
+}
+
+.resume-section a {
+  text-decoration: underline;
 }
