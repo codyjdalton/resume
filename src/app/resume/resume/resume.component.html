@@ -89,29 +89,7 @@
   </section>
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
-    <div class="my-auto">
-      <h2 class="mb-3">Contact</h2>
-      <p class="mb-4">If you are interested in booking a speaking engagement or in making new professional connections, please contact me below.</p>
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="d-none">Your Name:</label>
-          <input placeholder="Your Name" type="text" class="form-control" id="nameInput" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1" class="d-none">Your Email:</label>
-          <input placeholder="Your Email" type="email" class="form-control" id="emailInput" required>
-        </div>
-        <div class="form-group d-none">
-            <label for="exampleInputEmail1" class="d-none">Your Password:</label>
-          <input placeholder="Your Password" type="password" class="form-control" id="passwordInput" required>
-        </div>
-        <div class="form-group mb-4">
-          <label for="exampleInputEmail1" class="d-none">Your Message:</label>
-          <textarea placeholder="Message" class="form-control" id="messageInput" required></textarea>        
-        </div>
-        <button (click)="openDialog()" type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
+    <app-contact></app-contact>
   </section>
 
 </div>

@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ResumeModule } from './resume/resume.module';
-
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { ResumeModule } from './resume/resume.module';
     BrowserAnimationsModule,
     BrowserModule,
     HttpModule,
+    ReactiveFormsModule,
     CommonModule,
     ResumeModule
   ],

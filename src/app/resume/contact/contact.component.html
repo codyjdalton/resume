@@ -1,0 +1,25 @@
+<div class="my-auto">
+  <h2 class="mb-3">Contact</h2>
+  <p class="mb-4">If you are interested in booking a speaking engagement or in making new professional connections,<br> please contact me below.</p>
+  <p *ngIf="duplicateError" class="text-danger ita">We are working on following up on your original message. Please try again later.</p>
+  <form [formGroup]="contactForm">
+    <div class="form-group" [class.has-error]="isInvalid('name')">
+      <input placeholder="Your Name" type="text" class="form-control" id="nameInput" type="text" formControlName="name" required>
+      <label *ngIf="isInvalid('name')" class="text-danger small">Please add your name.</label>
+    </div>
+    <div class="form-group" [class.has-error]="isInvalid('email')">
+      <input placeholder="Your Email" type="email" class="form-control" id="emailInput" type="text" formControlName="email" required>
+      <label *ngIf="isInvalid('email')" class="text-danger small">Please add your email.</label>
+    </div>
+    <div class="form-group d-none">
+      <input placeholder="Your Password" type="password" class="form-control" id="passwordInput" type="text" formControlName="password" required>
+      <label class="text-danger small">Please add your password.</label>
+    </div>
+    <div class="form-group mb-4" [class.has-error]="isInvalid('message')">
+      <label for="exampleInputEmail1" class="d-none">Your Message:</label>
+      <textarea placeholder="Message" class="form-control" id="messageInput" type="text" formControlName="message" required></textarea>
+      <label *ngIf="isInvalid('message')" class="text-danger small">Please add your message.</label>      
+    </div>
+    <button (click)="submit()" type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</div>

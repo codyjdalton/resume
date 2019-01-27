@@ -119,3 +119,14 @@ form {
 .fixed-top {
   z-index: 5;
 }
+
+.mat-dialog-container {
+  border-radius: 0 !important;
+}
+
+.has-error {
+  .form-control {
+    border-color: lighten($red, 10%);
+    background: lighten($red, 40%);
+  }
+}
