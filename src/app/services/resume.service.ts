@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class ResumeService {
 
+  showNavigationHighlight: boolean = true;
+
   /**
    * @TODO Fetch these from a web service
    */
@@ -36,14 +38,14 @@ export class ResumeService {
       'Test Driven Development',
       'Cross Functional Teams'
     ],
-    interests: [
+    /*interests: [
       'Apart from being a software engineer, I spend most of my time reading and going to movies. ' +
       'During summer blockbuster season (when it is too hot to go outside in Phoenix), ' +
       'I am an especially avid movie-goer and even occasionally write reviews when the mood strikes. During the cooler months ' +
       'here in Arizona, I enjoy traveling and sightseeing.',
       'Speaking of going out on the town, when I have collected enough material, I have even been ' +
       'known to try my hand at the occasional stand-up comedy set. This is a rarity as I am not really all that funny.'
-    ],
+    ], */
     experience: [
       {
         position: 'Senior Software Engineer',
@@ -119,9 +121,13 @@ export class ResumeService {
       title: 'Articles',
       key: 'articles',
     },
-    {
+    /* {
       title: 'Interests',
       key: 'interests',
+    }, */
+    {
+      title: 'Contact',
+      key: 'contact',
     },
   ];
 

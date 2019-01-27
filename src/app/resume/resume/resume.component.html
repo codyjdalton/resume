@@ -1,7 +1,6 @@
 <!-- resume.component -->
 <app-nav [candidate]="candidate"></app-nav>
-<div *ngIf="candidate" class="container-fluid p-0">
-
+<div *ngIf="candidate" class="container-fluid p-0 show">
   <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
     <div class="my-auto">
       <h1 class="mb-0">{{ candidate.firstName }}
@@ -87,6 +86,10 @@
       <h2 class="mb-5">Interests</h2>
       <p *ngFor="let para of candidate.interests">{{ para }}</p>
     </div>
+  </section>
+
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
+    <app-contact></app-contact>
   </section>
 
 </div>

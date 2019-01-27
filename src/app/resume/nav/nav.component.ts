@@ -35,7 +35,11 @@ export class NavComponent implements OnInit, AfterViewInit {
 
     this.scrollObservable
         .subscribe(
-          () => this.setActiveTab()
+          () => {
+            if(this.highlight) {
+              this.setActiveTab();
+            }
+          }
         );
 
     this.scrollObservable
@@ -65,6 +69,10 @@ export class NavComponent implements OnInit, AfterViewInit {
    */
   close() {
     this.toggled = false;
+  }
+
+  get highlight(): boolean {
+    return this.resumeService.showNavigationHighlight;
   }
 
   /**

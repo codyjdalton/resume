@@ -5,7 +5,7 @@ body {
   padding-top: 54px;
   color: $gray-600;
 }
-@media (min-width: 992px) {
+@media (min-width: $breakpoint) {
   body {
     padding-top: 0;
     padding-left: $sidebar-base-width;
@@ -63,5 +63,70 @@ h2 {
     &:hover {
       color: $primary;
     }
+  }
+}
+
+form {
+  label {
+    // font-weight: 00;
+    color: $secondary;
+  }
+}
+
+// forms
+.form-control {
+  border-radius: 0;
+  //border-color: lighten($secondary, 20%);
+  border-color: $gray-500;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  // background: lighten($gray-200, 5%);
+  // background: $white;
+
+  &:focus {
+    border-color: darken($gray-200, 50%);
+    background: lighten($gray-200, 10%);
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+}
+
+// BUTTONS
+.btn {
+  border: none;
+  border-radius: 0;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.btn-primary {
+  background: darken($primary, 5%);
+
+  &:hover {
+    background: $primary;
+  }
+}
+
+.pb-10 {
+  padding-bottom: 6em;
+}
+
+.fixed-top {
+  z-index: 5;
+}
+
+.mat-dialog-container {
+  border-radius: 0 !important;
+}
+
+.has-error {
+  .form-control {
+    border-color: lighten($red, 10%);
+    background: lighten($red, 40%);
   }
 }

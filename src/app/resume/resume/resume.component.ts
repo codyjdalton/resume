@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Http } from '@angular/http'; 
+import { Http } from '@angular/http';
 
 import { ResumeService } from '../../services/resume.service';
 
@@ -22,6 +22,10 @@ export class ResumeComponent implements OnInit {
     // set candidate
     this.candidate = this.resumeService.candidate;
 
+    this.setMedium();
+  }
+
+  setMedium() {
     if(this.candidate.mediumUsername) {
       // fetch medium articles
       this.http.get('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40' + this.candidate.mediumUsername)
@@ -30,5 +34,4 @@ export class ResumeComponent implements OnInit {
         );
     }
   }
-
 }
