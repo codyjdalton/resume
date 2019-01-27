@@ -4,6 +4,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { NavComponent } from './nav/nav.component';
 
 import { DescriptionPipe } from '../pipes/description.pipe';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,9 @@ import { DescriptionPipe } from '../pipes/description.pipe';
   exports: [
     ResumeComponent
   ],
-  declarations: [DescriptionPipe, ResumeComponent, NavComponent]
+  declarations: [DescriptionPipe, ResumeComponent, NavComponent, MessageDialogComponent],
+  entryComponents: [
+    MessageDialogComponent
+  ]
 })
 export class ResumeModule { }

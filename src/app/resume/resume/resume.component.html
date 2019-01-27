@@ -1,7 +1,6 @@
 <!-- resume.component -->
 <app-nav [candidate]="candidate"></app-nav>
-<div *ngIf="candidate" class="container-fluid p-0">
-
+<div *ngIf="candidate" class="container-fluid p-0 show">
   <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
     <div class="my-auto">
       <h1 class="mb-0">{{ candidate.firstName }}
@@ -110,7 +109,7 @@
           <label for="exampleInputEmail1" class="d-none">Your Message:</label>
           <textarea placeholder="Message" class="form-control" id="messageInput" required></textarea>        
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button (click)="openDialog()" type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </div>
   </section>

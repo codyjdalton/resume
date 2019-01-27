@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class ResumeService {
 
+  showNavigationHighlight: boolean = true;
+
   /**
    * @TODO Fetch these from a web service
    */

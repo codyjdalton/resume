@@ -2,15 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { ResumeModule } from './resume/resume.module';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    MatDialogModule,
+    BrowserAnimationsModule,
     BrowserModule,
     HttpModule,
     CommonModule,
