@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
         this.contactForm = this.fb.group({
           name: ['', Validators.required],
           email: ['', Validators.required],
-          password: [''],
+          password: [null],
           message: ['', Validators.required],
         });
       }
@@ -42,7 +42,7 @@ export class ContactComponent implements OnInit {
     this.duplicateError = false;
 
     if(!this.isInvalid('email') && !this.isInvalid('name') &&
-     !this.isInvalid('message')) {
+     !this.isInvalid('message') && this.contactForm.controls.password.value === null) {
 
       this.coreService.createLead(this.contactForm.value)
         .subscribe(
