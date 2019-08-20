@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/codyjdalton/resume.svg?branch=master)](https://travis-ci.org/codyjdalton/resume)
 
-# Resume
+# Resume Starter Kit
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.10.
 
